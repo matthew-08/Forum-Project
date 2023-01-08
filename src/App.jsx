@@ -4,11 +4,14 @@ import {
 } from 'react-router-dom';
 import Homepage from './Pages/Homepage/Homepage';
 import Subcategory from './Pages/subCategory/Subcategory';
+import CreateThread from './Pages/CreateThread/CreateThread';
+import Navbar from './Navbar/Navbar';
 
 function App() {
   console.log('app render');
   return (
     <Router>
+      <Navbar />
       <Routes>
         <Route
           path="/:id"
@@ -17,6 +20,10 @@ function App() {
         <Route
           path="/"
           element={<Homepage />}
+        />
+        <Route
+          path="/createThread"
+          element={<CreateThread />}
         />
       </Routes>
     </Router>

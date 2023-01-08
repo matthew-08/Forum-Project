@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 export default function Subcategory() {
   // In the subcategory, this location below has the title of the parent categor
@@ -7,6 +7,19 @@ export default function Subcategory() {
   const data = location.state;
   console.log(data);
   return (
-    <div>sub.title</div>
+    <div>
+      sub.title
+      <Link
+        to="/createThread"
+        state={data}
+      >
+        <button
+          type="button"
+        >
+          Create Thread
+        </button>
+      </Link>
+
+    </div>
   );
 }
