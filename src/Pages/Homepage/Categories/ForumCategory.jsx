@@ -4,6 +4,7 @@ import Subcategory from '../../subCategory/Subcategory';
 
 export default function ForumCategory({ categoryInfo }) {
   const { subCategories } = categoryInfo;
+  const { title } = categoryInfo;
   return (
     <div>
       { categoryInfo.title}
@@ -11,8 +12,7 @@ export default function ForumCategory({ categoryInfo }) {
         {subCategories && subCategories.map((sub) => (
           <Link
             to={`/${sub}`}
-            state={{ sub }}
-           /*  state={{ sub, categoryInfo }} */
+            state={{ sub, title }}
           >
             {sub}
           </Link>

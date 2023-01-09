@@ -15,7 +15,7 @@ export default function Subcategory() {
     const docRef = doc(db, 'SubCategory', `${data.sub}`);
     const setDocs = async () => {
       await getDoc(docRef).then((res) => {
-        setThreads(res.data());
+        setThreads(res.data().Threads);
       });
     };
     setDocs();
@@ -25,14 +25,26 @@ export default function Subcategory() {
     console.log(threads);
   }, [threads]);
   return (
+
     <div>
       {data.sub}
       {' '}
       {data.sub}
+      <div>
+        {threads.map((thread) => (
+          <Link
+            to={`${thread.title}`}
+            state={{ thread, data }}
+          >
+            {thread.title}
+          </Link>
+        ))}
+      </div>
       <Link
         to="/createThread"
         state={data}
       >
+
         <button
           type="button"
         >

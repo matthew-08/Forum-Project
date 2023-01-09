@@ -4,6 +4,7 @@ import {
   doc, updateDoc, arrayUnion, arrayRemove, addDoc, collection,
 } from 'firebase/firestore';
 import { uuidv4 } from '@firebase/util';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import app, { db } from '../../Firebase';
 
 export default function CreateThread() {
@@ -18,13 +19,28 @@ export default function CreateThread() {
     const id = uuidv4();
     const categoryRef = doc(db, 'SubCategory', `${data.sub}`);
     const threadInfoRef = doc(db, 'SubCategory', `${data.sub}`, 'ThreadInfo', 'ThreadInfo');
-    console.log(threadInfoRef);
+    const auth = getAuth();
+    let currentUser;
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        currentUser = user;
+      } else {
+        console.log('no user signed in');
+      }
+    });
+
     const createPost = async () => {
       await updateDoc(categoryRef, {
         Threads: arrayUnion({ title, id }),
       });
       await updateDoc(threadInfoRef, {
-        [id]: 'hello',
+        [id]: {
+          replies: [],
+          content: { inputValue },
+          title: { title },
+          userDisplayName: currentUser.displayName,
+          userId: currentUser.uid,
+        },
       });
     };
     createPost();
@@ -41,7 +57,7 @@ export default function CreateThread() {
         <p>Post Title</p>
         <input
           type="text"
-          onChange={(e) => setTitle(title)}
+          onChange={(e) => setTitle(e.target.value)}
         />
         <textarea
           onChange={(e) => setInputValue(e.target.value)}
