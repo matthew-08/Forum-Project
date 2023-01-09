@@ -36,8 +36,8 @@ export default function CreateThread() {
       await updateDoc(threadInfoRef, {
         [id]: {
           replies: [],
-          content: { inputValue },
-          title: { title },
+          content: inputValue,
+          title,
           userDisplayName: currentUser.displayName,
           userId: currentUser.uid,
         },
