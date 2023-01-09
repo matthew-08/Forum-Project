@@ -1,0 +1,33 @@
+header {
+    color: white;
+}
+
+.header-bottom {
+    font-size: 1.8rem;
+    margin-top: 0.5rem;
+}
+
+.thread-container {
+    display: flex;
+    background-color: var(--grey);
+    flex-direction: column;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+.thread-container-top {
+    background-color: rgb(193, 214, 233);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0.3rem;
+}
+
+.thread-container-top button {
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+}

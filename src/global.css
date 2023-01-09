@@ -7,6 +7,7 @@ body * {
 :root {
   --main-blue: hsla(210, 100%, 10%, 0.87);
   --main-font: 'Roboto', sans-serif;
+  --grey: #ebeced;
   
 
 }
@@ -14,8 +15,11 @@ body * {
 body {
   width: 100vw;
   height: 100vh;
-  padding: 0;
   margin: 0;
   background-color: hsla(210, 100%, 10%, 0.87);
+}
 
+.main {
+  padding-left: 20rem;
+  padding-right: 20rem;   
 }

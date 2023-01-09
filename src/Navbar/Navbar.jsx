@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
   GoogleAuthProvider, getAuth, signInWithPopup,
 } from 'firebase/auth';
+import styles from './navbar.module.css';
 import UserInfo from './UserInfo';
 
 const provider = new GoogleAuthProvider();
@@ -40,21 +41,42 @@ export default function Navbar() {
   }, [user]);
 
   return (
-    <nav>
-
-      <button
-        type="button"
-        onClick={() => handleSignIn()}
+    <nav
+      className={styles.nav}
+    >
+      <header
+        className={styles['header-top']}
       >
-        Sign In
+        <h1>A forum</h1>
+      </header>
+      <header
+        className={styles['header-bottom']}
+      >
+        <div
+          className={styles.container}
+        >
+          <ul>
+            <li>Forums</li>
+            <li>Latest</li>
+            <li>Trending</li>
 
-      </button>
-      {user.email && (
-      <UserInfo
-        name={user.displayName}
-        img={user.photoURL}
-      />
-      )}
+          </ul>
+        </div>
+        {!user.email ? (
+          <button
+            type="button"
+            onClick={() => handleSignIn()}
+          >
+            Sign In
+          </button>
+        )
+          : (
+            <UserInfo
+              name={user.displayName}
+              img={user.photoURL}
+            />
+          )}
+      </header>
     </nav>
   );
 }
