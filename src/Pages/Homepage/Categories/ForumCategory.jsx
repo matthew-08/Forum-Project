@@ -10,10 +10,11 @@ export default function ForumCategory({ categoryInfo }) {
       <div>
         {subCategories && subCategories.map((sub) => (
           <Link
-            to={`/${sub.title}`}
-            state={{ sub, categoryInfo }}
+            to={`/${sub}`}
+            state={{ sub }}
+           /*  state={{ sub, categoryInfo }} */
           >
-            {sub.title}
+            {sub}
           </Link>
         ))}
       </div>
