@@ -9,6 +9,7 @@ import { uuidv4 } from '@firebase/util';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import app, { db } from '../../Firebase';
 import styles from './createthread.module.css';
+import getCurrentUser from '../../APICalls/getCurrentUser';
 
 export default function CreateThread() {
   const [inputValue, setInputValue] = useState('');
@@ -23,17 +24,10 @@ export default function CreateThread() {
     const id = uuidv4();
     const categoryRef = doc(db, 'SubCategory', `${data.sub}`);
     const threadInfoRef = doc(db, 'SubCategory', `${data.sub}`, 'ThreadInfo', 'ThreadInfo');
-    const auth = getAuth();
-    let currentUser;
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        currentUser = user;
-      } else {
-        console.log('no user signed in');
-      }
-    });
 
     const createPost = async () => {
+      const currentUser = await getCurrentUser();
+
       await updateDoc(categoryRef, {
         Threads: arrayUnion({ title, id }),
       });

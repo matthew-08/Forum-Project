@@ -8,6 +8,7 @@ import getThread from '../../APICalls/APICall';
 import styles from './thread.module.css';
 import Post from './Post';
 import LocationTracker from '../../LocationTracker/LocationTracker';
+import getCurrentUser from '../../APICalls/getCurrentUser';
 
 export default function Thread() {
   const [threadInfo, setThreadInfo] = useState(null);
@@ -36,8 +37,15 @@ export default function Thread() {
   const handleNewComment = async () => {
     console.log('test');
     console.log([`Threads.${id}.replies`]);
+    const currentUser = getc;
     await updateDoc(docRef, {
-      [`${id}.replies`]: arrayUnion(comment),
+      [`${id}.replies`]: arrayUnion({
+        content: comment,
+        userDisplayName: currentUser.displayName,
+        userId: currentUser.uid,
+        userImg: currentUser.photoURL,
+        date: new Date().toISOString().slice(0, 10),
+      }),
     });
   };
 
@@ -62,15 +70,9 @@ export default function Thread() {
           </>
         )
 }
-      {/* <div>
-        {threadInfo && threadInfo.title}
-      </div>
-      <div>
-        {threadInfo && threadInfo.content}
-      </div>
-      <div>
-        {threadInfo && threadInfo.userDisplayName}
-      </div> */}
+      {threadInfo && threadInfo.replies.map((reply) => {
+
+      })}
       <textarea
         name="Comment"
         id=""

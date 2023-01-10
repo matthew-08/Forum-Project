@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './thread.module.css';
+import approve from './approve.svg';
 
 export default function Post({
   title, content, userName, userImg, date,
@@ -21,6 +22,13 @@ export default function Post({
             <img src={userImg} alt="user-img" />
           </div>
           <p>{userName}</p>
+          <div
+            className={styles.verified}
+          >
+            <img src={approve} alt="approved user img" />
+            Verified User
+
+          </div>
         </div>
       </div>
       <div
