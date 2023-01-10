@@ -31,11 +31,12 @@ function App() {
             path=":id"
             element={<Thread />}
           />
+          <Route
+            path="createThread"
+            element={<CreateThread />}
+          />
         </Route>
-        <Route
-          path="/createThread"
-          element={<CreateThread />}
-        />
+
       </Routes>
     </Router>
   );

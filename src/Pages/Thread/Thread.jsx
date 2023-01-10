@@ -5,12 +5,16 @@ import {
 import { useLocation } from 'react-router-dom';
 import { db } from '../../Firebase';
 import getThread from '../../APICalls/APICall';
+import styles from './thread.module.css';
+import Post from './Post';
+import LocationTracker from '../../LocationTracker/LocationTracker';
 
 export default function Thread() {
   const [threadInfo, setThreadInfo] = useState(null);
   const [comment, setComment] = useState('');
   const location = useLocation();
   const data = location.state;
+  console.log(data);
 
   const docRef = doc(db, 'SubCategory', `${data.data.sub}`, 'ThreadInfo', 'ThreadInfo');
   const { id } = data.thread;
@@ -20,6 +24,8 @@ export default function Thread() {
   }; */
 
   useEffect(() => {
+    console.log(docRef);
+    console.log(id);
     getThread(id, docRef).then((res) => setThreadInfo(res));
   }, []);
 
@@ -36,8 +42,27 @@ export default function Thread() {
   };
 
   return (
-    <section>
-      <div>
+    <section
+      className="main"
+    >
+      {
+        threadInfo
+        && (
+          <>
+            <LocationTracker
+              arrayOfLocations={[data.data.sub, data.data.title, threadInfo.title]}
+            />
+            <Post
+              title={threadInfo.title}
+              content={threadInfo.content}
+              userName={threadInfo.userDisplayName}
+              userImg={threadInfo.userImg}
+              date={threadInfo.date}
+            />
+          </>
+        )
+}
+      {/* <div>
         {threadInfo && threadInfo.title}
       </div>
       <div>
@@ -45,7 +70,7 @@ export default function Thread() {
       </div>
       <div>
         {threadInfo && threadInfo.userDisplayName}
-      </div>
+      </div> */}
       <textarea
         name="Comment"
         id=""

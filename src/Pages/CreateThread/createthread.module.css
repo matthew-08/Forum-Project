@@ -1,0 +1,51 @@
+.container {
+    background-color: aliceblue;
+    padding: 0.2rem;
+    border-radius: 10px;
+}
+
+.header{
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    border-bottom: 2px solid rgb(43, 40, 40, 0.6);
+}
+
+.title-block {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    padding: 0.6rem;
+}
+
+.title-block input {
+    width: 50%;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.title-block p {
+    font-weight: 800;
+    font-size: 2rem;
+    margin: 0;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.text-area-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    gap: 0.5rem ;
+}
+
+.text-area-section textarea {
+    width: 50%;
+    height: 300px;
+}

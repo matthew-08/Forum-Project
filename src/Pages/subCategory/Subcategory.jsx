@@ -4,6 +4,8 @@ import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../Firebase';
 import styles from './subcategory.module.css';
 import ThreadBlock from './ThreadBlock';
+import addIcon from './add.svg';
+import LocationTracker from '../../LocationTracker/LocationTracker';
 
 export default function Subcategory() {
   // In the subcategory, this location below has the title of the parent categor
@@ -12,6 +14,8 @@ export default function Subcategory() {
   const location = useLocation();
   const data = location.state;
   console.log(data);
+  const { title } = data;
+  const { sub } = data;
 
   useEffect(() => {
     const docRef = doc(db, 'SubCategory', `${data.sub}`);
@@ -31,7 +35,10 @@ export default function Subcategory() {
     <section
       className="main"
     >
-      <header>
+      <LocationTracker
+        arrayOfLocations={[title, sub]}
+      />
+      {/* <header>
         <div
           className={styles['header-top']}
         >
@@ -46,14 +53,29 @@ export default function Subcategory() {
         >
           {data.sub}
         </div>
-      </header>
-      <div>
+      </header> */}
+      <div
+        className={styles['main-container']}
+      >
         <div
           className={styles['thread-container']}
         >
           <div
             className={styles['thread-container-top']}
           >
+
+            <Link
+              to="createThread"
+              state={data}
+            >
+              <button
+                type="button"
+                className={styles['create-thread-button']}
+              >
+                <img src={addIcon} alt="" />
+                Create Thread
+              </button>
+            </Link>
             <button
               type="button"
             >
@@ -69,16 +91,7 @@ export default function Subcategory() {
             />
           ))}
         </div>
-        <Link
-          to="/createThread"
-          state={data}
-        >
-          <button
-            type="button"
-          >
-            Create Thread
-          </button>
-        </Link>
+
       </div>
     </section>
   );
