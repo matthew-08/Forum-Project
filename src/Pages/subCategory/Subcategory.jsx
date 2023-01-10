@@ -62,13 +62,11 @@ export default function Subcategory() {
             </button>
           </div>
           {threads.map((thread) => (
-
-            <Link
-              to={`${thread.title}`}
-              state={{ thread, data }}
-            >
-              {thread.title}
-            </Link>
+            <ThreadBlock
+              title={thread.title}
+              thread={thread}
+              data={data}
+            />
           ))}
         </div>
         <Link

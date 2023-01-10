@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import {
-  doc, getDoc, updateDoc, arrayUnion,
+  doc, updateDoc, arrayUnion,
 } from 'firebase/firestore';
 import { useLocation } from 'react-router-dom';
 import { db } from '../../Firebase';
+import getThread from '../../APICalls/APICall';
 
 export default function Thread() {
   const [threadInfo, setThreadInfo] = useState(null);
@@ -13,13 +14,13 @@ export default function Thread() {
 
   const docRef = doc(db, 'SubCategory', `${data.data.sub}`, 'ThreadInfo', 'ThreadInfo');
   const { id } = data.thread;
-  const getThread = async () => {
+  /* const getThread = async () => {
     const threadData = await getDoc(docRef).then((res) => res.data()[id]);
     return threadData;
-  };
+  }; */
 
   useEffect(() => {
-    getThread().then((res) => setThreadInfo(res));
+    getThread(id, docRef).then((res) => setThreadInfo(res));
   }, []);
 
   useEffect(() => {

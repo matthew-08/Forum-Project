@@ -31,3 +31,13 @@ header {
     border: none;
     padding: 10px;
 }
+
+.thread-block {
+    padding: 0.5rem;
+    display: flex;
+    border-bottom: 1px solid rgb(117, 116, 116, 0.5);
+}
+
+.thread-block:last-child {
+    border-bottom: none;
+}
