@@ -3,7 +3,7 @@ import styles from './thread.module.css';
 import approve from './approve.svg';
 
 export default function Post({
-  title, content, userName, userImg, date,
+  content, userName, userImg, date,
 }) {
   console.log(userImg);
   return (

@@ -37,7 +37,7 @@ export default function Thread() {
   const handleNewComment = async () => {
     console.log('test');
     console.log([`Threads.${id}.replies`]);
-    const currentUser = getc;
+    const currentUser = await getCurrentUser();
     await updateDoc(docRef, {
       [`${id}.replies`]: arrayUnion({
         content: comment,
@@ -46,12 +46,12 @@ export default function Thread() {
         userImg: currentUser.photoURL,
         date: new Date().toISOString().slice(0, 10),
       }),
-    });
+    }).then(() => getThread(id, docRef).then((res) => setThreadInfo(res)));
   };
 
   return (
     <section
-      className="main"
+      className={['main', styles.split].join(' ')}
     >
       {
         threadInfo
@@ -70,9 +70,15 @@ export default function Thread() {
           </>
         )
 }
-      {threadInfo && threadInfo.replies.map((reply) => {
-
-      })}
+      {' '}
+      {threadInfo && threadInfo.replies.map((reply) => (
+        <Post
+          content={reply.content}
+          userName={reply.userDisplayName}
+          userImg={reply.userImg}
+          date={reply.date}
+        />
+      ))}
       <textarea
         name="Comment"
         id=""
