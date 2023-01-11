@@ -1,9 +1,12 @@
 .nav {
     width: 100%;
     padding: 2rem;
+    padding-left: 18rem;
+    padding-right: 18rem;
     display: flex;
     flex-direction: column;
     color: white;
+
 }
 
 .header-bottom {
@@ -16,10 +19,14 @@
 }
 .header-bottom button {
     background: rgb(255, 255, 255);
-    padding: 0.5rem;
+    padding: 0.8rem;
     border: none;
     color:  black;
-    font-weight: 800;
+    font-weight: 200;
+    font-size: 1.2rem;
+    background: var(--grey);
+    color: var(--main-blue); 
+    border-radius: 10px;
 }
 
 .header-bottom ul {

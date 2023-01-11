@@ -17,6 +17,14 @@ body {
   height: 100vh;
   margin: 0;
   background-color: hsla(210, 100%, 10%, 0.87);
+  overflow-x: hidden;
+
+}
+
+button { 
+  cursor: pointer;
+  background: #b5b9bd ;
+  color: white;
 }
 
 .main {

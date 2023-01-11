@@ -1,15 +1,10 @@
 import { onAuthStateChanged, getAuth } from 'firebase/auth';
 
-const getCurrentUser = async () => {
+const getCurrentUser = () => {
   let username;
   const auth = getAuth();
-  await onAuthStateChanged(auth, (user) => {
-    if (user) {
-      console.log(user);
-      username = user;
-    } console.log('no user signed in');
-  });
-  return username;
+  const user = auth.currentUser;
+  return user;
 };
 
 export default getCurrentUser;

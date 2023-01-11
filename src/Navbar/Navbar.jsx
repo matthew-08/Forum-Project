@@ -1,44 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import {
-  GoogleAuthProvider, getAuth, signInWithPopup,
+  GoogleAuthProvider, getAuth, signInWithPopup, onAuthStateChanged,
 } from 'firebase/auth';
 import styles from './navbar.module.css';
 import UserInfo from './UserInfo';
-
-const provider = new GoogleAuthProvider();
-const auth = getAuth();
+import getCurrentUser from '../APICalls/getCurrentUser';
+import handleSignIn from '../APICalls/handleSignIn';
+import SignInButton from '../Components/SignInButton';
 
 export default function Navbar() {
   const [user, setUser] = useState({});
 
-  const handleSignIn = () => {
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
-        console.log(result);
-        const { user } = result;
-        console.log(user);
-        setUser(user);
-        // ...
-      }).catch((error) => {
-        // Handle Errors here.
-        console.log(error);
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const { email } = error.customData;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
-      });
-  };
-
   useEffect(() => {
-    console.log(user);
-  }, [user]);
+    const getUser = async () => {
+      const auth = await getAuth();
+      await onAuthStateChanged(auth, (u) => {
+        if (u) {
+          setUser(u);
+        }
+      });
+    };
+    getUser();
+  }, []);
+
+  const signIn = () => {
+    handleSignIn().then((res) => setUser(res));
+  };
 
   return (
     <nav
@@ -63,12 +50,10 @@ export default function Navbar() {
           </ul>
         </div>
         {!user.email ? (
-          <button
-            type="button"
-            onClick={() => handleSignIn()}
-          >
-            Sign In
-          </button>
+          <SignInButton
+            callBack={signIn}
+            innerText="Sign In"
+          />
         )
           : (
             <UserInfo

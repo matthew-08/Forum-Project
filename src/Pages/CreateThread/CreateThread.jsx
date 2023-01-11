@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import {
-  useLocation, redirect, useNavigate,
+  useLocation, useNavigate,
 } from 'react-router-dom';
 import {
-  doc, updateDoc, arrayUnion, arrayRemove, addDoc, collection,
+  doc, updateDoc, arrayUnion,
 } from 'firebase/firestore';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { uuidv4 } from '@firebase/util';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import app, { db } from '../../Firebase';
+import { db } from '../../Firebase';
 import styles from './createthread.module.css';
 import getCurrentUser from '../../APICalls/getCurrentUser';
 
@@ -27,11 +27,9 @@ export default function CreateThread() {
 
     const createPost = async () => {
       const currentUser = await getCurrentUser();
-
       await updateDoc(categoryRef, {
         Threads: arrayUnion({ title, id }),
       });
-      console.log(currentUser);
       await updateDoc(threadInfoRef, {
         [id]: {
           replies: [],
@@ -45,7 +43,6 @@ export default function CreateThread() {
       });
     };
     createPost().then(() => {
-      console.log('check');
       navigate(`/${data.sub}/${title}`, { state: { data: { sub: data.sub }, thread: { id } } });
     });
   };

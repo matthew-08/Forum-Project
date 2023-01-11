@@ -9,8 +9,10 @@ import styles from './thread.module.css';
 import Post from './Post';
 import LocationTracker from '../../LocationTracker/LocationTracker';
 import getCurrentUser from '../../APICalls/getCurrentUser';
+import SignInButton from '../../Components/SignInButton';
+import handleSignIn from '../../APICalls/handleSignIn';
 
-export default function Thread() {
+export default function Thread({ user }) {
   const [threadInfo, setThreadInfo] = useState(null);
   const [comment, setComment] = useState('');
   const location = useLocation();
@@ -66,32 +68,48 @@ export default function Thread() {
               userName={threadInfo.userDisplayName}
               userImg={threadInfo.userImg}
               date={threadInfo.date}
+              count={1}
             />
           </>
         )
 }
       {' '}
-      {threadInfo && threadInfo.replies.map((reply) => (
+      {threadInfo && threadInfo.replies.map((reply, index) => (
         <Post
           content={reply.content}
           userName={reply.userDisplayName}
           userImg={reply.userImg}
           date={reply.date}
+          count={index + 2}
         />
       ))}
-      <textarea
-        name="Comment"
-        id=""
-        cols="30"
-        rows="10"
-        onChange={(e) => setComment(e.target.value)}
-      />
-      <button
-        onClick={handleNewComment}
-        type="button"
+      <div
+        className={styles['comment-section']}
       >
-        Comment
-      </button>
+        {user.email && (
+        <textarea
+          name="Comment"
+          id=""
+          cols="30"
+          rows="10"
+          onChange={(e) => setComment(e.target.value)}
+        />
+        )}
+        {user.email ? (
+          <button
+            onClick={handleNewComment}
+            type="button"
+          >
+            Comment
+          </button>
+        )
+          : (
+            <SignInButton
+              callBack={handleSignIn}
+              innerText="Login"
+            />
+          )}
+      </div>
     </section>
   );
 }

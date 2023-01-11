@@ -22,6 +22,7 @@
     background-color: var(--grey);
     display: flex;
     margin-bottom: 0.8rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
 }
 .post-content{
@@ -34,6 +35,8 @@
 .post-content-top {
     border-bottom: 1px solid rgb(97, 93, 93, 0.7);
     width: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .user-info-top {
@@ -58,4 +61,32 @@
 
 .verified img {
     width: 15px;
+}
+
+.count {
+    margin-left: auto;
+    font-size: 1.2rem;
+    color: gray;
+    margin-bottom: 0.25rem  ;
+}
+
+.comment-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem  ;
+}
+.comment-section textarea {
+    width: 50%;
+}
+
+.comment-section button {
+    width: 30%;
+    font-size: 1.5rem;
+    padding: 0.6rem;
+    border: none;
+    background: var(--grey);
+    color: var(--main-blue); 
+    margin-bottom: 1rem;
 }

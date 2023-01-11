@@ -4,6 +4,7 @@ import approve from './approve.svg';
 
 export default function Post({
   content, userName, userImg, date,
+  count,
 }) {
   console.log(userImg);
   return (
@@ -38,6 +39,13 @@ export default function Post({
           className={styles['post-content-top']}
         >
           <small>{date}</small>
+          <small
+            className={styles.count}
+          >
+            #
+            {count}
+
+          </small>
         </div>
         <div
           className={styles['post-content-main']}
