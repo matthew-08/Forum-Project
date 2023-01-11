@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   useLocation, useNavigate,
 } from 'react-router-dom';
@@ -10,10 +10,12 @@ import { uuidv4 } from '@firebase/util';
 import { db } from '../../Firebase';
 import styles from './createthread.module.css';
 import getCurrentUser from '../../APICalls/getCurrentUser';
+import ImageSelector from './ImageSelector';
 
 export default function CreateThread() {
   const [inputValue, setInputValue] = useState('');
   const [title, setTitle] = useState('');
+  const [image, setImage] = useState(1);
   const location = useLocation();
   const data = location.state;
   const navigate = useNavigate();
@@ -39,6 +41,7 @@ export default function CreateThread() {
           userId: currentUser.uid,
           userImg: currentUser.photoURL,
           date: new Date().toISOString().slice(0, 10),
+          imgId: image,
         },
       });
     };
@@ -46,6 +49,14 @@ export default function CreateThread() {
       navigate(`/${data.sub}/${title}`, { state: { data: { sub: data.sub }, thread: { id } } });
     });
   };
+
+  const getImage = (e) => {
+    setImage(e);
+  };
+
+  useEffect(() => {
+    console.log(image);
+  }, [image]);
 
   return (
     <main
@@ -66,6 +77,9 @@ export default function CreateThread() {
           <div
             className={styles['title-block']}
           >
+            <ImageSelector
+              getImage={getImage}
+            />
             <p>Post Title</p>
             <input
               type="text"

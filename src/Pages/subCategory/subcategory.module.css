@@ -37,10 +37,41 @@ header {
     padding: 0.5rem;
     display: flex;
     border-bottom: 1px solid rgb(117, 116, 116, 0.5);
+    justify-content: space-between;
+    align-items: center;
+}
+
+.thread-block img {
+    width: 2vw;
+    max-width: 50px;
+}
+
+.thread-block a {
+    font-size: 1.5rem;
+}
+
+.thread-info-container {
+    display: flex;
+    gap: 2rem;
+    color: rgb(60, 152, 233);
+}
+
+.thread-info-container p {
+    margin: 0.2rem;
+    font-size: 0.9rem;
+    color: #5473b1;
+}
+
+.thread-info-container div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .thread-block:last-child {
     border-bottom: none;
+
 }
 
 .button-container a {
@@ -60,4 +91,20 @@ header {
 
 .create-thread-button img {
     width: 22px;
+}
+
+.length {
+    font-size: 1.4rem;
+    color: #5473b1;
+}
+
+.username {
+    font-size: 1.4rem;
+    color: #5473b1;
+}
+
+.thread-block-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }

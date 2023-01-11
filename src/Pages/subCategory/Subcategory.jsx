@@ -10,10 +10,11 @@ import LocationTracker from '../../LocationTracker/LocationTracker';
 export default function Subcategory() {
   // In the subcategory, this location below has the title of the parent categor
   const [threads, setThreads] = useState([]);
+  const [threadInfo, setThreadInfo] = useState([]);
 
   const location = useLocation();
   const data = location.state;
-  console.log(data);
+
   const { title } = data;
   const { sub } = data;
 
@@ -25,11 +26,16 @@ export default function Subcategory() {
       });
     };
     setDocs();
+    const threadInfoRef = doc(db, 'SubCategory', `${data.sub}`, 'ThreadInfo', 'ThreadInfo');
+    const getThreadInfo = async () => {
+      await getDoc(threadInfoRef).then((res) => {
+        setThreadInfo(res.data());
+        console.log(res.data());
+      });
+    };
+    getThreadInfo();
   }, []);
 
-  useEffect(() => {
-    console.log(threads);
-  }, [threads]);
   return (
 
     <section
@@ -85,6 +91,7 @@ export default function Subcategory() {
           </div>
           {threads.map((thread) => (
             <ThreadBlock
+              threadInfo={threadInfo[thread.id]}
               title={thread.title}
               thread={thread}
               data={data}

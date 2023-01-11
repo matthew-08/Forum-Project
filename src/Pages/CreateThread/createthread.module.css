@@ -49,3 +49,21 @@
     width: 50%;
     height: 300px;
 }
+
+.image-selector {
+    display: flex;
+    gap: 1.7rem;
+}
+
+.image-selector > button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    padding: 0.8rem;
+    background: none;
+}
+
+.image-selector img {
+    width: 40px;
+}
