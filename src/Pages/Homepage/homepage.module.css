@@ -2,3 +2,11 @@
     padding-left: 20rem;
     padding-right: 20rem;   
 }
+
+.wave {
+    position: fixed;
+    z-index: -1;
+    bottom: -10%;
+    right: 0;
+    filter: invert(1%) sepia(2%) saturate(200%) hue-rotate(20deg) brightness(99%) contrast(40%);
+}

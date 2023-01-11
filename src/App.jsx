@@ -9,6 +9,7 @@ import Subcategory from './Pages/subCategory/Subcategory';
 import CreateThread from './Pages/CreateThread/CreateThread';
 import Navbar from './Navbar/Navbar';
 import Thread from './Pages/Thread/Thread';
+import wave from './assets/wave.svg';
 
 function App() {
   const [user, setUser] = useState({});
@@ -21,38 +22,55 @@ function App() {
     });
   }, []);
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route
-          path="/"
-          element={<Homepage />}
-        />
-        <Route
-          path="/:id"
-        >
+    <>
+      <img
+        src={wave}
+        className="wave"
+        alt="wave"
+      />
+      <img
+        src={wave}
+        className="wave-2"
+        alt="wave"
+      />
+      <img
+        src={wave}
+        className="wave-3"
+        alt="wave"
+      />
+      <Router>
+        <Navbar />
+        <Routes>
           <Route
-            index
-            element={
-              <Subcategory />
+            path="/"
+            element={<Homepage />}
+          />
+          <Route
+            path="/:id"
+          >
+            <Route
+              index
+              element={
+                <Subcategory />
           }
-          />
-          <Route
-            path=":id"
-            element={(
-              <Thread
-                user={user}
-              />
+            />
+            <Route
+              path=":id"
+              element={(
+                <Thread
+                  user={user}
+                />
 )}
-          />
-          <Route
-            path="createThread"
-            element={<CreateThread />}
-          />
-        </Route>
+            />
+            <Route
+              path="createThread"
+              element={<CreateThread />}
+            />
+          </Route>
 
-      </Routes>
-    </Router>
+        </Routes>
+      </Router>
+    </>
   );
 }
 

@@ -5,6 +5,7 @@ import {
 import styles from './homepage.module.css';
 import Categories from './Categories/Categories';
 import app from '../../Firebase';
+import wave from '../../assets/wave.svg';
 
 const db = getFirestore(app);
 

@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Subcategory from '../../subCategory/Subcategory';
 import styles from './categories.module.css';
 import SubCategoryBlock from './SubCategoryBlock/SubCategoryBlock';
 

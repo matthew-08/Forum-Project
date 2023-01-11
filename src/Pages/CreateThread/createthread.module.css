@@ -13,6 +13,12 @@
     border-bottom: 2px solid rgb(43, 40, 40, 0.6);
 }
 
+header p {
+    font-family: var(--second-font) ;
+    color:  rgb(0, 0, 0);
+    margin: 0;
+}
+
 .title-block {
     width: 100%;
     display: flex;
@@ -48,11 +54,14 @@
 .text-area-section textarea {
     width: 50%;
     height: 300px;
+    padding: 0.5rem;
+    font-size: 1rem;
 }
 
 .image-selector {
     display: flex;
     gap: 1.7rem;
+    margin-bottom: 0.5rem;
 }
 
 .image-selector > button {
@@ -66,4 +75,18 @@
 
 .image-selector img {
     width: 40px;
+}
+
+.button {
+    width: 10%;
+    padding: 1rem;
+    font-size: 2rem;
+    color: var(--main-blue);
+    border: 2px solid black;
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 10px;
+}
+
+.button:hover {
+    background: rgba(116, 180, 116, 0.2);
 }

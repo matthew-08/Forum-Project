@@ -8,6 +8,7 @@ body * {
   --main-blue: hsla(210, 100%, 10%, 0.87);
   --main-font: 'Roboto', sans-serif;
   --grey: #ebeced;
+  --second-font:'RocknRoll One', sans-serif;
   
 
 }
@@ -16,18 +17,39 @@ body {
   width: 100vw;
   height: 100vh;
   margin: 0;
-  background-color: hsla(210, 100%, 10%, 0.87);
+  background-color: #001a33de;
+ /*  background-color: #0e3253de; */
   overflow-x: hidden;
 
 }
 
-button { 
+button{
   cursor: pointer;
-  background: #b5b9bd ;
-  color: white;
 }
 
 .main {
   padding-left: 20rem;
   padding-right: 20rem;   
+}
+
+.wave {
+  position: fixed;
+  z-index: -1;
+  bottom: -10%;
+  right: 0;
+}
+
+.wave-2 {
+  position: fixed;
+  z-index: -1;
+  transform: rotate(30deg);
+  right: -50%;
+}
+
+
+.wave-3 {
+  position: fixed;
+  z-index: -1;
+  transform: rotate(320deg);
+  left: -70%;
 }

@@ -69,8 +69,9 @@ export default function CreateThread() {
           className={styles.header}
         >
           <p>
-            New thread
-
+            New thread in:
+            {' '}
+            {data.sub}
           </p>
         </header>
         <form action="#">
@@ -80,10 +81,10 @@ export default function CreateThread() {
             <ImageSelector
               getImage={getImage}
             />
-            <p>Post Title</p>
             <input
               type="text"
               onChange={(e) => setTitle(e.target.value)}
+              placeholder="Post Title..."
             />
           </div>
           <div
@@ -91,14 +92,21 @@ export default function CreateThread() {
           >
             <textarea
               onChange={(e) => setInputValue(e.target.value)}
+              placeholder="Thread content..."
             />
             <button
               type="submit"
               onClick={handleCreateThread}
+              className={styles.button}
             >
               Create
             </button>
           </div>
+        </form>
+        <form action="/action_page.php">
+          <label htmlFor="img">Select image:</label>
+          <input type="file" id="img" name="img" accept="image/*" />
+          <input type="submit" />
         </form>
       </section>
     </main>

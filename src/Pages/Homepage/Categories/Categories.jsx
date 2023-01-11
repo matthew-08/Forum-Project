@@ -1,14 +1,11 @@
 import { useState, useEffect } from 'react';
 import {
-  getFirestore, doc, getDocs, collection,
+  getFirestore, getDocs, collection,
 } from 'firebase/firestore';
-import { Link, Route, Routes } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './categories.module.css';
 import app from '../../../Firebase';
 import ForumCategory from './ForumCategory';
-
-const db = getFirestore(app);
 
 export default function Categories() {
   const [categories, setCategories] = useState([]);
@@ -35,6 +32,7 @@ export default function Categories() {
     >
       { categories.map((e) => (
         <ForumCategory
+          key={uuidv4()}
           categoryInfo={e}
         />
 

@@ -4,6 +4,7 @@ import styles from '../categories.module.css';
 import icon from './chat.png';
 
 export default function SubCategoryBlock({ sub, title }) {
+  console.log(sub);
   return (
     <div
       className={styles['sub-block']}
