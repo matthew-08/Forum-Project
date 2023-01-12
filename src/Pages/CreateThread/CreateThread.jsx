@@ -72,7 +72,10 @@ export default function CreateThread() {
             {data.sub}
           </p>
         </header>
-        <form action="#">
+        <form
+          action="#"
+          className={styles.form}
+        >
           <div
             className={styles['title-block']}
           >
@@ -92,13 +95,23 @@ export default function CreateThread() {
               onChange={(e) => setInputValue(e.target.value)}
               placeholder="Thread content..."
             />
-            <button
-              type="submit"
-              onClick={handleCreateThread}
-              className={styles.button}
+            <div
+              className={styles['buttons-container']}
             >
-              Create
-            </button>
+              <button
+                type="submit"
+                onClick={handleCreateThread}
+                className={styles.button}
+              >
+                Create
+              </button>
+              <button
+                type="button"
+                className={styles.button}
+              >
+                Cancel
+              </button>
+            </div>
           </div>
         </form>
         <button

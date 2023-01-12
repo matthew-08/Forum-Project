@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
   getAuth, onAuthStateChanged,
 } from 'firebase/auth';
+import { Link } from 'react-router-dom';
 import styles from './navbar.module.css';
 import UserInfo from './UserInfo';
 import handleSignIn from '../APICalls/handleSignIn';
@@ -34,10 +35,11 @@ export default function Navbar() {
       <header
         className={styles['header-top']}
       >
-        <h1>A forum</h1>
+        <h1>A Forum</h1>
         <img
           src={coffee}
           className={styles['coffee-img']}
+          alt="logo"
         />
       </header>
       <header
@@ -47,7 +49,11 @@ export default function Navbar() {
           className={styles.container}
         >
           <ul>
-            <li><span>Forums</span></li>
+            <Link
+              to="/"
+            >
+              <li><span>Forums</span></li>
+            </Link>
             <li><span>Latest</span></li>
             <li><span>Trending</span></li>
 

@@ -68,7 +68,8 @@ header {
     align-items: center;
 }
 
-.header-bottom ul li {
+.header-bottom ul li,
+.header-bottom ul a {
     border-right: 3px solid #fafafa;
     padding-right: 0.3rem;
     font-size: 1.4rem;
