@@ -86,3 +86,19 @@ header {
     color: rgb(67, 78, 129);
     cursor: pointer;
 }
+
+.coffee-img {
+    width: 50px;
+    filter: brightness(0) invert(1);
+
+}
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-top h1 {
+margin-bottom: 0;
+font-size: 2rem;
+}

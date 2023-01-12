@@ -6,6 +6,7 @@ import styles from './navbar.module.css';
 import UserInfo from './UserInfo';
 import handleSignIn from '../APICalls/handleSignIn';
 import SignInButton from '../Components/SignInButton';
+import coffee from '../assets/coffee.svg';
 
 export default function Navbar() {
   const [user, setUser] = useState({});
@@ -34,6 +35,10 @@ export default function Navbar() {
         className={styles['header-top']}
       >
         <h1>A forum</h1>
+        <img
+          src={coffee}
+          className={styles['coffee-img']}
+        />
       </header>
       <header
         className={styles['header-bottom']}
