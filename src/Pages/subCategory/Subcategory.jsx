@@ -7,7 +7,7 @@ import ThreadBlock from './ThreadBlock';
 import addIcon from './add.svg';
 import LocationTracker from '../../LocationTracker/LocationTracker';
 
-export default function Subcategory() {
+export default function Subcategory({ user }) {
   // In the subcategory, this location below has the title of the parent categor
   const [threads, setThreads] = useState([]);
   const [threadInfo, setThreadInfo] = useState([]);
@@ -70,6 +70,7 @@ export default function Subcategory() {
             className={styles['thread-container-top']}
           >
 
+            {user.email && (
             <Link
               to="createThread"
               state={data}
@@ -82,6 +83,7 @@ export default function Subcategory() {
                 Create Thread
               </button>
             </Link>
+            )}
             <button
               type="button"
             >

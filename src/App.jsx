@@ -52,9 +52,11 @@ function App() {
           >
             <Route
               index
-              element={
-                <Subcategory />
-          }
+              element={(
+                <Subcategory
+                  user={user}
+                />
+              )}
             />
             <Route
               path=":id"

@@ -102,7 +102,7 @@ header {
 .username {
     font-size: 1.4rem;
     color: #5473b1;
-    max-width: 20ch;
+    max-width: 15ch;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -115,5 +115,5 @@ header {
 }
 
 .user-block {
-    min-width: 150px;
+    min-width: 200px;
 }

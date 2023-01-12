@@ -42,9 +42,9 @@ export default function Navbar() {
           className={styles.container}
         >
           <ul>
-            <li>Forums</li>
-            <li>Latest</li>
-            <li>Trending</li>
+            <li><span>Forums</span></li>
+            <li><span>Latest</span></li>
+            <li><span>Trending</span></li>
 
           </ul>
         </div>

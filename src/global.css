@@ -53,3 +53,12 @@ button{
   transform: rotate(320deg);
   left: -70%;
 }
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(36, 33, 33, 0.5);
+}

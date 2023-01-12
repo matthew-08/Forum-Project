@@ -11,11 +11,13 @@ import { db } from '../../Firebase';
 import styles from './createthread.module.css';
 import getCurrentUser from '../../APICalls/getCurrentUser';
 import ImageSelector from './ImageSelector';
+import GifSelector from '../../Components/GifSelector/GifSelector';
 
 export default function CreateThread() {
   const [inputValue, setInputValue] = useState('');
   const [title, setTitle] = useState('');
   const [image, setImage] = useState(1);
+  const [showGifSelector, setShowGifSelector] = useState(false);
   const location = useLocation();
   const data = location.state;
   const navigate = useNavigate();
@@ -53,15 +55,11 @@ export default function CreateThread() {
   const getImage = (e) => {
     setImage(e);
   };
-
-  useEffect(() => {
-    console.log(image);
-  }, [image]);
-
   return (
     <main
       className="main"
     >
+      {showGifSelector && <GifSelector />}
       <section
         className={styles.container}
       >
@@ -103,11 +101,13 @@ export default function CreateThread() {
             </button>
           </div>
         </form>
-        <form action="/action_page.php">
-          <label htmlFor="img">Select image:</label>
-          <input type="file" id="img" name="img" accept="image/*" />
-          <input type="submit" />
-        </form>
+        <button
+          type="button"
+          onClick={(e) => setShowGifSelector(!showGifSelector)}
+        >
+          Select a gif
+
+        </button>
       </section>
     </main>
   );
