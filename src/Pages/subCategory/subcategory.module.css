@@ -52,9 +52,10 @@ header {
 
 .thread-info-container {
     display: flex;
-    gap: 2rem;
+    gap: 7rem;
     color: rgb(60, 152, 233);
 }
+
 
 .thread-info-container p {
     margin: 0.2rem;
@@ -101,10 +102,18 @@ header {
 .username {
     font-size: 1.4rem;
     color: #5473b1;
+    max-width: 20ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .thread-block-left {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+.user-block {
+    min-width: 150px;
 }

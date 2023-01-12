@@ -39,9 +39,11 @@ export default function Thread({ user }) {
   const handleNewComment = async () => {
     console.log('test');
     console.log([`Threads.${id}.replies`]);
+    console.log(id);
     const currentUser = await getCurrentUser();
+    console.log(currentUser);
     await updateDoc(docRef, {
-      [`${id}.replies`]: arrayUnion({
+      [`${id.toString()}.replies`]: arrayUnion({
         content: comment,
         userDisplayName: currentUser.displayName,
         userId: currentUser.uid,

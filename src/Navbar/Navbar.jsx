@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {
-  GoogleAuthProvider, getAuth, signInWithPopup, onAuthStateChanged,
+  getAuth, onAuthStateChanged,
 } from 'firebase/auth';
 import styles from './navbar.module.css';
 import UserInfo from './UserInfo';
-import getCurrentUser from '../APICalls/getCurrentUser';
 import handleSignIn from '../APICalls/handleSignIn';
 import SignInButton from '../Components/SignInButton';
 

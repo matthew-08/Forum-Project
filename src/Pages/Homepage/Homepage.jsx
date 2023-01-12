@@ -1,13 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import {
-  doc, updateDoc, Timestamp, getFirestore, arrayUnion, arrayRemove,
-} from 'firebase/firestore';
+import React from 'react';
 import styles from './homepage.module.css';
 import Categories from './Categories/Categories';
-import app from '../../Firebase';
-import wave from '../../assets/wave.svg';
-
-const db = getFirestore(app);
 
 /* const categories = [
   {

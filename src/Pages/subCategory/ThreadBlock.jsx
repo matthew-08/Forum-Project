@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './subcategory.module.css';
-import { db } from '../../Firebase';
 import chat from '../../assets/chat.svg';
 import cat from '../../assets/cat.svg';
 import chicken from '../../assets/chicken.svg';
@@ -44,7 +43,9 @@ export default function ThreadBlock({
 
           </span>
         </div>
-        <div>
+        <div
+          className={styles['user-block']}
+        >
           <p>Author:</p>
           {' '}
           <span

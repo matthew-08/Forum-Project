@@ -22,10 +22,6 @@ export default function Categories() {
     getCategories();
     return () => setCategories([]);
   }, []);
-
-  useEffect(() => {
-    console.log(categories);
-  }, [categories]);
   return (
     <section
       className={styles.container}

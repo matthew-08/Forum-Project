@@ -7,7 +7,7 @@ import styles from './createthread.module.css';
 export default function ImageSelector({ getImage }) {
   const [selected, setSelected] = useState(1);
 
-  const handleSetImg = (n, img) => {
+  const handleSetImg = (n) => {
     setSelected(n);
     getImage(n);
   };
@@ -21,7 +21,10 @@ export default function ImageSelector({ getImage }) {
         style={{ border: selected === 1 && '4px solid black' }}
         onClick={() => handleSetImg(1, { chat })}
       >
-        <img src={chat} />
+        <img
+          src={chat}
+          alt="chat-icon"
+        />
 
       </button>
       <button
@@ -29,7 +32,10 @@ export default function ImageSelector({ getImage }) {
         style={{ border: selected === 2 && '4px solid black' }}
         onClick={() => handleSetImg(2, { cat })}
       >
-        <img src={cat} />
+        <img
+          src={cat}
+          alt="cat-icon"
+        />
 
       </button>
       <button
@@ -37,7 +43,10 @@ export default function ImageSelector({ getImage }) {
         style={{ border: selected === 3 && '4px solid black' }}
         onClick={() => handleSetImg(3, { chicken })}
       >
-        <img src={chicken} />
+        <img
+          src={chicken}
+          alt="chicken-icon"
+        />
 
       </button>
 

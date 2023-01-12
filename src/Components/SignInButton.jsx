@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function SignInButton({ passClass, innerText, callBack }) {
+export default function SignInButton({ innerText, callBack }) {
   return (
     <button
       type="button"
