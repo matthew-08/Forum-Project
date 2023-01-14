@@ -92,3 +92,10 @@
     color: var(--main-blue); 
     margin-bottom: 1rem;
 }
+
+.gif-container {
+    width: 100%;
+    display: flex;
+    padding-top: 1rem;
+    border-top: 2px solid gray;
+}

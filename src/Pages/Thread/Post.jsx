@@ -4,7 +4,7 @@ import approve from './approve.svg';
 
 export default function Post({
   content, userName, userImg, date,
-  count,
+  count, gif,
 }) {
   console.log(userImg);
   return (
@@ -51,7 +51,14 @@ export default function Post({
           className={styles['post-content-main']}
         >
           <p>{content}</p>
-
+          <div
+            className={styles['gif-container']}
+          >
+            <img
+              src={gif}
+              alt="user-selected-gif"
+            />
+          </div>
         </div>
 
       </div>

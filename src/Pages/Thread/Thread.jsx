@@ -71,6 +71,7 @@ export default function Thread({ user }) {
               userImg={threadInfo.userImg}
               date={threadInfo.date}
               count={1}
+              gif={threadInfo.gif}
             />
           </>
         )

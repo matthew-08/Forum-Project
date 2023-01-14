@@ -3,7 +3,7 @@ import { Audio } from 'react-loader-spinner';
 import styles from './gifselector.module.css';
 import cancel from './cancel.svg';
 
-export default function GifSelector() {
+export default function GifSelector({ handleUserImageSelection, closeSelector }) {
   const [gifs, setGifs] = useState([]);
   const [input, setInputValue] = useState('');
   const [loading, setLoading] = useState(false);
@@ -40,6 +40,7 @@ export default function GifSelector() {
       <div className={styles.container}>
         <button
           type="button"
+          onClick={() => closeSelector()}
           className={styles['cancel-button']}
         >
           <img src={cancel} alt="cancel" />
@@ -71,6 +72,7 @@ export default function GifSelector() {
               {gifs && gifs.map((gif) => (
                 <button
                   type="button"
+                  onClick={(e) => handleUserImageSelection(gif)}
                 >
                   <img src={`${gif}`} alt="gif" />
                 </button>

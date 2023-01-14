@@ -17,6 +17,7 @@ export default function CreateThread() {
   const [inputValue, setInputValue] = useState('');
   const [title, setTitle] = useState('');
   const [image, setImage] = useState(1);
+  const [gif, setUserGif] = useState(null);
   const [showGifSelector, setShowGifSelector] = useState(false);
   const location = useLocation();
   const data = location.state;
@@ -44,6 +45,7 @@ export default function CreateThread() {
           userImg: currentUser.photoURL,
           date: new Date().toISOString().slice(0, 10),
           imgId: image,
+          gif,
         },
       });
     };
@@ -55,11 +57,26 @@ export default function CreateThread() {
   const getImage = (e) => {
     setImage(e);
   };
+
+  const handleUserImageSelection = (img) => {
+    setShowGifSelector(false);
+    console.log(img);
+    setUserGif(img);
+  };
+
+  const closeSelector = () => {
+    setShowGifSelector(false);
+  };
   return (
     <main
       className="main"
     >
-      {showGifSelector && <GifSelector />}
+      {showGifSelector && (
+      <GifSelector
+        handleUserImageSelection={handleUserImageSelection}
+        closeSelector={closeSelector}
+      />
+      )}
       <section
         className={styles.container}
       >
@@ -95,6 +112,14 @@ export default function CreateThread() {
               onChange={(e) => setInputValue(e.target.value)}
               placeholder="Thread content..."
             />
+            <button
+              type="button"
+              className={styles['gif-selector']}
+              onClick={(e) => setShowGifSelector(!showGifSelector)}
+            >
+              Select a gif
+
+            </button>
             <div
               className={styles['buttons-container']}
             >
@@ -114,13 +139,6 @@ export default function CreateThread() {
             </div>
           </div>
         </form>
-        <button
-          type="button"
-          onClick={(e) => setShowGifSelector(!showGifSelector)}
-        >
-          Select a gif
-
-        </button>
       </section>
     </main>
   );
