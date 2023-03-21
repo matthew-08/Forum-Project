@@ -6,14 +6,16 @@ import { getFirestore } from 'firebase/firestore';
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
 const firebaseConfig = {
-  apiKey: 'AIzaSyA6EwxeDRI6wngJIuae7TheOR2_iBO8PtA',
-  authDomain: 'forum-d5d94.firebaseapp.com',
-  projectId: 'forum-d5d94',
-  storageBucket: 'forum-d5d94.appspot.com',
-  messagingSenderId: '341524952062',
-  appId: '1:341524952062:web:e972ac56ba0cb12c9e86af',
+  apiKey: import.meta.env.VITE_FIREBASE_APIKEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
+
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);

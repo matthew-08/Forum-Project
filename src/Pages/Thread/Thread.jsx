@@ -71,7 +71,7 @@ export default function Thread({ user }) {
               userImg={threadInfo.userImg}
               date={threadInfo.date}
               count={1}
-              gif={threadInfo.gif}
+              gif={threadInfo.gif && threadInfo.gif}
             />
           </>
         )
@@ -109,7 +109,7 @@ export default function Thread({ user }) {
           : (
             <SignInButton
               callBack={handleSignIn}
-              innerText="Login"
+              innerText="Login to post"
             />
           )}
       </div>

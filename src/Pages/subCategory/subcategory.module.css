@@ -117,3 +117,7 @@ header {
 .user-block {
     min-width: 200px;
 }
+
+.dropdown-container {
+    position: relative;
+}

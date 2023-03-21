@@ -6,7 +6,6 @@ export default function Post({
   content, userName, userImg, date,
   count, gif,
 }) {
-  console.log(userImg);
   return (
     <div
       className={styles.post}
@@ -51,14 +50,19 @@ export default function Post({
           className={styles['post-content-main']}
         >
           <p>{content}</p>
+          {gif
+          && (
           <div
             className={styles['gif-container']}
           >
+
             <img
               src={gif}
               alt="user-selected-gif"
             />
+
           </div>
+          )}
         </div>
 
       </div>

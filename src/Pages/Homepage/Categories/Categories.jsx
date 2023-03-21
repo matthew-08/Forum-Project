@@ -18,6 +18,7 @@ export default function Categories() {
       const querySnapshot = await getDocs(citiesRef);
       querySnapshot.forEach((doc) => array.push({ ...doc.data(), title: doc.id }));
       setCategories(array);
+      console.log(array);
     };
     getCategories();
     return () => setCategories([]);

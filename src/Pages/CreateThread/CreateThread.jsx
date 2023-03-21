@@ -12,6 +12,7 @@ import styles from './createthread.module.css';
 import getCurrentUser from '../../APICalls/getCurrentUser';
 import ImageSelector from './ImageSelector';
 import GifSelector from '../../Components/GifSelector/GifSelector';
+import giphy from './gif.png';
 
 export default function CreateThread() {
   const [inputValue, setInputValue] = useState('');
@@ -80,65 +81,84 @@ export default function CreateThread() {
       <section
         className={styles.container}
       >
-        <header
-          className={styles.header}
-        >
-          <p>
-            New thread in:
-            {' '}
-            {data.sub}
-          </p>
-        </header>
-        <form
-          action="#"
-          className={styles.form}
-        >
-          <div
-            className={styles['title-block']}
-          >
-            <ImageSelector
-              getImage={getImage}
-            />
-            <input
-              type="text"
-              onChange={(e) => setTitle(e.target.value)}
-              placeholder="Post Title..."
-            />
-          </div>
-          <div
-            className={styles['text-area-section']}
-          >
-            <textarea
-              onChange={(e) => setInputValue(e.target.value)}
-              placeholder="Thread content..."
-            />
-            <button
-              type="button"
-              className={styles['gif-selector']}
-              onClick={(e) => setShowGifSelector(!showGifSelector)}
-            >
-              Select a gif
 
-            </button>
+        <div
+          className={styles['gif-preview']}
+        >
+          {gif
+          && <img src={gif} />}
+        </div>
+
+        <div
+          className={styles['post-main']}
+        >
+          <header
+            className={styles.header}
+          >
+            <p>
+              New thread in:
+              {' '}
+              {data.sub}
+            </p>
+          </header>
+          <form
+            action="#"
+            className={styles.form}
+          >
             <div
-              className={styles['buttons-container']}
+              className={styles['title-block']}
             >
-              <button
-                type="submit"
-                onClick={handleCreateThread}
-                className={styles.button}
-              >
-                Create
-              </button>
-              <button
-                type="button"
-                className={styles.button}
-              >
-                Cancel
-              </button>
+              <ImageSelector
+                getImage={getImage}
+              />
+              <input
+                type="text"
+                onChange={(e) => setTitle(e.target.value)}
+                placeholder="Post Title..."
+              />
             </div>
-          </div>
-        </form>
+            <div
+              className={styles['text-area-section']}
+            >
+              <textarea
+                onChange={(e) => setInputValue(e.target.value)}
+                placeholder="Thread content..."
+              />
+              <div
+                className={styles['container-bottom']}
+              >
+                <div
+                  className={styles['gif-selector-container']}
+                >
+                  <button
+                    type="button"
+                    className={styles['gif-selector']}
+                    onClick={(e) => setShowGifSelector(!showGifSelector)}
+                  >
+                    <img src={giphy} alt="gif" />
+                  </button>
+                </div>
+                <div
+                  className={styles['buttons-container']}
+                >
+                  <button
+                    type="submit"
+                    onClick={handleCreateThread}
+                    className={styles.button}
+                  >
+                    Create
+                  </button>
+                  <button
+                    type="button"
+                    className={styles.button}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
       </section>
     </main>
   );

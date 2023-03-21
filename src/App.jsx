@@ -10,7 +10,6 @@ import CreateThread from './Pages/CreateThread/CreateThread';
 import Navbar from './Navbar/Navbar';
 import Thread from './Pages/Thread/Thread';
 import wave from './assets/wave.svg';
-import MakePosts from './script/makePosts';
 
 function App() {
   const [user, setUser] = useState({});
@@ -24,7 +23,6 @@ function App() {
   }, []);
   return (
     <>
-      {/* <MakePosts /> */}
       <img
         src={wave}
         className="wave"

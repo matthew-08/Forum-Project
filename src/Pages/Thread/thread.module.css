@@ -47,6 +47,7 @@
     align-items: center;
     flex-direction: column;
     font-size: 1vw;
+    align-self: flex-start;
 }
 
 .post-content-main {

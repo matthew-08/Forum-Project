@@ -1,0 +1,19 @@
+.dropdown {
+    width: 10rem;
+    position: absolute;
+    background-color: rgb(163, 201, 235, 0.7);
+    bottom: -465%;
+    right: 0;
+    margin-top: 4rem;
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.dropdown button {
+    font-size: 1rem;
+}
