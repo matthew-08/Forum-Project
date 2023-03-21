@@ -5,11 +5,23 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 60%;
+    width: 70%;
     align-items: center;
     border-radius: 20px ;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     position: relative;
+}
+
+@media(max-width:800px) {
+    .container {
+        width: 80%;
+    }
+}
+
+@media(max-width:630px) {
+    .container {
+        width: 95%;
+    }
 }
 
 .container h2 {
@@ -39,6 +51,8 @@
     border: 2px solid white;
     padding: 0.8rem;
     border-radius: 20px;
+    max-height: 400px;
+    overflow: auto;
   }
 
 .img-container button {

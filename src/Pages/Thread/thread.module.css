@@ -19,6 +19,21 @@
     border-right: 2px solid rgb(97, 93, 93, 0.7);
 }
 
+@media(max-width: 800px) {
+    .userinfo {
+        max-width: 20%;
+        min-width: 20%;
+    }
+}
+
+@media(max-width: 610px) {
+    .userinfo {
+        max-width: 25%;
+        min-width: 25%;
+    }
+}
+
+
 .post {
     width: 100%;
     background-color: var(--grey);
@@ -46,7 +61,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    font-size: 1vw;
+    font-size: 1.2rem;
     align-self: flex-start;
 }
 
@@ -82,7 +97,16 @@
 }
 .comment-section textarea {
     width: 50%;
+    font-size: 1.4rem;
+    padding: 1rem;
 }
+
+@media(max-width: 800px) {
+    .comment-section textarea {
+        width: 80%;
+    }
+}
+
 
 .comment-section button {
     width: 30%;

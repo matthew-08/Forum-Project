@@ -103,7 +103,7 @@ header p {
 .gif-selector
 {
     padding: 0.8rem;
-    font-size: 0.9vw;
+    font-size: 1rem;
     color: black;
     border: 2px solid black;
     border-radius: 10px;
@@ -115,7 +115,7 @@ header p {
 }
 
 .form input,
-textarea {
+    textarea {
     border: none;
     border-radius: 10px;
 }
@@ -136,10 +136,10 @@ textarea {
 
 
 .container-bottom {
-display: flex;
-justify-content: space-between;
-width: 100%;
-align-items: flex-end;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: flex-end;
 }
 
 .gif-selector {
@@ -159,6 +159,13 @@ align-items: flex-end;
     width: 100%;
 }
 
+
+/* @media(max-width:680px) {
+    .post-main {
+        width: 500px;
+    }
+} */
+
 .gif-preview {
     display: flex;
     justify-content: center;
@@ -170,4 +177,17 @@ align-items: flex-end;
 .gif-preview img {
     width: 300px;
     border-radius: 10px;
+}
+
+@media(max-width:680px) {
+    .container {
+        display: flex;
+        width: 100%;
+    }
+    .gif-preview {
+        display: none;
+    }
+    .post-main {
+        width: 100%;
+    }
 }

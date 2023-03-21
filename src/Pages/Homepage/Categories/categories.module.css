@@ -7,6 +7,8 @@
     border-top-right-radius: 10px;
 }
 
+
+
 .container{
     border-radius: 10px;
     margin-bottom: 1rem;
@@ -45,4 +47,13 @@ a {
 
 .sub-block img {
     width: 3%;
+}
+
+@media(max-width: 700px) {
+    .header {
+        font-size: 1.2rem;
+    }
+    .sub-title {
+        font-size: 1rem;
+    }
 }

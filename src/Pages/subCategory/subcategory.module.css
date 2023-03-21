@@ -57,6 +57,23 @@ header {
 }
 
 
+@media(max-width:900px) {
+    .thread-info-container {
+       gap: 4rem;
+
+   }
+
+}
+
+@media(max-width:700px) {
+    .thread-info-container {
+       gap: 2rem;
+
+   }
+
+}
+
+
 .thread-info-container p {
     margin: 0.2rem;
     font-size: 0.9rem;
@@ -68,6 +85,20 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+@media(max-width:600px) {
+    .thread-info-container > div:first-child {
+        display: none;
+    }
+    .thread-info-container .username {
+        font-size: 1rem;
+    }
+}
+@media(max-width:400px) {
+    .thread-info-container .username {
+        font-size: 0.8rem;
+    }
 }
 
 .thread-block:last-child {
@@ -116,6 +147,36 @@ header {
 
 .user-block {
     min-width: 200px;
+}
+
+@media(max-width: 600px) {
+
+    .user-block {
+        min-width: 0px;
+    }
+
+}
+
+.thread-block-left a {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 500px;
+}
+
+@media (max-width:900px) {
+    .thread-block-left a {
+        max-width: 270px;
+    }
+    
+}
+
+@media (max-width:670px) {
+    .thread-block-left a {
+        max-width: 180px;
+        font-size: 0.9rem;
+    }
+    
 }
 
 .dropdown-container {
