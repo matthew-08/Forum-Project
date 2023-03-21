@@ -22,7 +22,6 @@ export default function Subcategory({ user }) {
   const { sub } = data;
 
   const checkForButton = (e) => {
-    console.log(e.target);
     if (e.target === button.current) {
       showDropdown(true);
     }
@@ -46,7 +45,6 @@ export default function Subcategory({ user }) {
     const getThreadInfo = async () => {
       await getDoc(threadInfoRef).then((res) => {
         setThreadInfo(res.data());
-        console.log(res.data());
       });
     };
     getThreadInfo();
@@ -56,13 +54,11 @@ export default function Subcategory({ user }) {
     const mergedList = threads.map((thread) => (
       { ...thread, reply: threadInfo[thread.id].replies.length }
     ));
-    console.log(mergedList);
     const filteredSort = mergedList.sort((a, b) => b.reply - a.reply);
     /*  .map((thread) => {
         delete thread.reply;
         return thread;
       }); */
-    console.log(filteredSort);
   };
 
   const handleDropdownClick = (e) => {

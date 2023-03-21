@@ -86,7 +86,12 @@ export default function CreateThread() {
           className={styles['gif-preview']}
         >
           {gif
-          && <img src={gif} />}
+          && (
+          <img
+            src={gif}
+            alt="gif"
+          />
+          )}
         </div>
 
         <div
