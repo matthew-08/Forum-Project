@@ -7,17 +7,14 @@ Go to [live app](https://noic-matthew-08.vercel.app/)
 <br>
 
 **"A Forum"** is a forum application built with the following technologies:
-
-
-![forum](https://user-images.githubusercontent.com/114291570/226537786-f41d379c-05d6-42f2-910b-25e191075d2a.png)
-
 - React
 - Firebase
 - Vite
 - CSS Modules
-
 - JavaScript
 - React-router-dom
+
+![forum](https://user-images.githubusercontent.com/114291570/226537786-f41d379c-05d6-42f2-910b-25e191075d2a.png)
 
 ## Notable Features:
 
