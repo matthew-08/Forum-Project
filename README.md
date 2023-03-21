@@ -8,6 +8,8 @@ Go to [live app](https://noic-matthew-08.vercel.app/)
 
 **"A Forum"** is a forum application built with the following technologies:
 
+![Alt text](../../Pictures/forum.png)
+
 - React
 - Firebase
 - Vite
