@@ -99,22 +99,6 @@ export default function Subcategory({ user }) {
               </button>
             </Link>
             )}
-            <div
-              className={styles['dropdown-container']}
-            >
-              {dropdown
-              && (
-              <Dropdown
-                handleDropdownClick={handleDropdownClick}
-              />
-              )}
-              <button
-                type="button"
-                ref={button}
-              >
-                Filter
-              </button>
-            </div>
           </div>
           {threads.map((thread) => (
             <ThreadBlock

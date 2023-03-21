@@ -1,12 +1,15 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import styles from './dropdown.module.css';
 
 export default function Dropdown({ handleDropdownClick }) {
+  const [hover, setHover] = useState(false);
   const dropdown = useRef();
 
   const checkForDropdown = (e) => {
     if (!dropdown === e.target || !dropdown.contains(e.target)) {
-
+      setHover(false);
+    } else {
+      setHover(true);
     }
   };
 
@@ -20,6 +23,9 @@ export default function Dropdown({ handleDropdownClick }) {
     <div
       className={styles.dropdown}
       ref={dropdown}
+      style={{
+        display: hover ? 'flex' : 'none',
+      }}
     >
       <button
         type="button"
