@@ -85,20 +85,29 @@ export default function Subcategory({ user }) {
             className={styles['thread-container-top']}
           >
 
-            {user.email && (
-            <Link
-              to="createThread"
-              state={data}
-            >
-              <button
-                type="button"
-                className={styles['create-thread-button']}
+            {user.email ? (
+              <Link
+                to="createThread"
+                state={data}
               >
-                <img src={addIcon} alt="" />
-                Create Thread
-              </button>
-            </Link>
-            )}
+                <button
+                  type="button"
+                  className={styles['create-thread-button']}
+                >
+                  <img src={addIcon} alt="" />
+                  Create Thread
+                </button>
+              </Link>
+            )
+              : (
+                <button
+                  type="button"
+                  className={styles['create-thread-button']}
+                >
+                  <img src={addIcon} alt="" />
+                  Login to create a thread.
+                </button>
+              )}
           </div>
           {threads.map((thread) => (
             <ThreadBlock
