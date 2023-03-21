@@ -17,31 +17,19 @@ export default function Thread({ user }) {
   const [comment, setComment] = useState('');
   const location = useLocation();
   const data = location.state;
-  console.log(data);
 
   const docRef = doc(db, 'SubCategory', `${data.data.sub}`, 'ThreadInfo', 'ThreadInfo');
   const { id } = data.thread;
-  /* const getThread = async () => {
-    const threadData = await getDoc(docRef).then((res) => res.data()[id]);
-    return threadData;
-  }; */
 
   useEffect(() => {
-    console.log(docRef);
-    console.log(id);
     getThread(id, docRef).then((res) => setThreadInfo(res));
   }, []);
 
   useEffect(() => {
-    console.log(threadInfo);
   }, [threadInfo]);
 
   const handleNewComment = async () => {
-    console.log('test');
-    console.log([`Threads.${id}.replies`]);
-    console.log(id);
     const currentUser = await getCurrentUser();
-    console.log(currentUser);
     await updateDoc(docRef, {
       [`${id.toString()}.replies`]: arrayUnion({
         content: comment,

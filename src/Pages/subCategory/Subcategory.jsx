@@ -75,22 +75,6 @@ export default function Subcategory({ user }) {
       <LocationTracker
         arrayOfLocations={[title, sub]}
       />
-      {/* <header>
-        <div
-          className={styles['header-top']}
-        >
-          Forums
-          {' '}
-          {'>'}
-          {' '}
-          {data.title}
-        </div>
-        <div
-          className={styles['header-bottom']}
-        >
-          {data.sub}
-        </div>
-      </header> */}
       <div
         className={styles['main-container']}
       >

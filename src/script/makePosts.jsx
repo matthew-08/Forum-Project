@@ -38,7 +38,6 @@ export default function MakePosts() {
       return { mainCategory: passMainCategory, subCategory };
     };
 
-    console.log(randomSubCategory());
     // loop
     const createPost = async () => {
       const subToPost = randomSubCategory();
