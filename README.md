@@ -14,7 +14,7 @@ Go to [live app](https://noic-matthew-08.vercel.app/)
 - React
 - Firebase
 - Vite
-- CSS Modules![forum](https://user-images.githubusercontent.com/114291570/226537748-2df57aa5-a04e-42f9-b71c-a48d94a3ab51.png)
+- CSS Modules
 
 - JavaScript
 - React-router-dom
