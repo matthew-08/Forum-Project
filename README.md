@@ -1,12 +1,10 @@
 # A Forum
 
-Go to [live app](https://noic-matthew-08.vercel.app/)
-<br>
-
-<br>
+Go to [live app](https://forum-project-two.vercel.app/)
 <br>
 
 **"A Forum"** is a forum application built with the following technologies:
+
 - React
 - Firebase
 - Vite
